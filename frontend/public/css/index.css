@@ -1,43 +1,42 @@
-body{
+/* General Body Styles */
+body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white ;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    max-height: 100vh;
-
 }
 
-main{
-    flex-grow: 1;
-   
-}
-
+/* Header Styling */
 header {
-    background-color:#007d6ee6;
+    background-color: #007d6e;
     color: white;
-    text-align: right; /* Alineación a la izquierda */
     padding: 1em;
+}
+
+.header-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-}
-
-header i {
-    font-size: 1.5em; /* Tamaño del ícono */
-    color: white;
-    cursor: pointer; /* Cambia a puntero si es clickeable */
+    justify-content: space-between;
 }
 
 header h1 {
     margin: 0;
     font-size: 1.8em;
+    text-align: center;
 }
 
+header a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
 
+/* Navigation Styles */
 nav ul {
     list-style: none;
     display: flex;
@@ -55,169 +54,163 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: black;
-    display: flex;
-    align-items: center;
-    gap: 0.5em; /* Espacio entre el texto y el ícono */
+    font-size: 1em;
+    transition: color 0.3s ease;
 }
 
-nav ul li a.cerrar-sesion i {
-    font-size: 1em; /* Ajusta el tamaño del ícono */
-    color: #ff4d4d; /* Cambia el color del ícono si lo deseas */
+nav ul li a:hover {
+    color: #007d6e;
 }
 
-
-.etiqueta{
-    margin: 10px;
-}
-
-#piePagina{
-    height: 2%;
-    display: flex;
-    justify-content: center;
-    background-color: #007d6e;
-    line-height: 5px;
-    color: whitesmoke;
-    border: 1px solid black;
-    border-radius: 5px;
-    
-    
-}
-
-#piepagina p{
-    margin-top: 10px;
+/* Main Content */
+main {
+    flex-grow: 1;
 }
 
 #contenido-interfaz{
     display: flex;
     flex-direction: row;
-   /*  align-items: normal; */
     justify-content: center;
-    width: 100%;
-    box-sizing: border-box;
-
 }
 
-
-
-.contenedor-seccion{
+/* Section Container Styles */
+.contenedor-seccion {
     border: 2px solid #007d6e;
     border-radius: 10px;
     margin: 10px;
-    box-sizing: border-box; 
-
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 880px;
+    min-height: 250px;
 }
 
-.espacio{
+
+
+/* Parking Spaces */
+#contenedor-espacio {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 5px;
-    padding: 4px;
-    width: 40px;
-    height: 50px;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.espacio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
     border: 2px solid #007d6e;
     border-radius: 10px;
     background-color: #68fb6e;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.espacio:hover{
+.espacio:hover {
     background-color: #007d6e41;
-    box-shadow: 10px rgba(133, 115, 115, 0.096);
+    transform: scale(1.1);
 }
 
-#contenedor-espacio{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-}
-
-#contenedor-general-espacios{
+#registro{
     display: flex;
     flex-direction: column;
-    
-    width: 800px;
-    height: 452px;
-    margin: 10px;
-    padding: 10px; 
-    box-sizing: border-box;    
-}
-
-#contenedor-general-registro{
-    display: flex;
-    flex-direction: column;
-    width: 461px;
-    height: 452px;
-    margin: 10px;
-    padding: 10px;
-    box-sizing: border-box;    
-}
-
-#registro-ingreso{
-    height: 247px;
-    margin-top: -8px;
-
-}
-
-#tipo-vehiculo{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    padding: 5px;
+}
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-#registro-retiro{
-    height: 202px;
+label {
+    font-size: 1em;
+    margin-bottom: 5px;
 }
 
-.boton{
-    margin: 10px;
-    padding: 5px;
+input[type="text"] {
+    padding: 0.5em;
+    border: 2px solid #007d6e;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button.boton, input[type="submit"] {
+    padding: 10px 20px;
     border: none;
     border-radius: 8px;
     background-color: #007d6e;
-    color:white
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+button.boton:hover, input[type="submit"]:hover {
+    background-color: #005a50;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer#piePagina {
+    background-color: #007d6e;
+    color: whitesmoke;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 2px solid #004b3a;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 
     nav ul {
-
-        flex-direction: row;
-        align-items: center;
-
-    }
-
-    nav ul li{
-        margin: 10px 15px;
-    }
-
-    nav ul li a{
-        font-size: 20px;
-    }
-
-    #contenido-interfaz{
         flex-direction: column;
+        gap: 10px;
     }
 
-    #contenedor-general-espacios{
-        width: 100%;
-        max-width: 480px;
-        height: fit-content;
+    #contenedor-espacio {
+        gap: 5px;
     }
-    
+
+    .espacio {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 @media (max-width: 480px) {
-    h1 {
+    header h1 {
         font-size: 1.5em;
     }
 
+    nav ul li a {
+        font-size: 0.9em;
+    }
 
+    input[type="text"] {
+        width: 90%;
+    }
 
-    #piePagina p {
-        font-size: 10px;
+    footer p {
+        font-size: 0.8em;
     }
 }

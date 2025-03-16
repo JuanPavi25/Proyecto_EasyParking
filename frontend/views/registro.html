@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/iniciosesion.css">
-    <title>Inicio de Sesión - EasyParking</title>
+    <link rel="stylesheet" href="css/registro.css">
+    <title>Registro de Parqueadero - EasyParking</title>
     <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
 </head>
 <body>
@@ -13,32 +13,35 @@
     </header>
 
     <main id="contenido">
-        <!-- Formulario de inicio de sesión -->
+        <!-- Formulario de registro de usuarios -->
         <section>
             <div id="contenedorModulo">
                 <div id="imagen">
                     <img src="img/logo.jpeg" alt="logo EasyParking" id="imagenLogo">
                 </div>
                 <div id="contenedor-inicioSesion">
-                    <form id="loginForm">
+                    <form id="registerForm">
                         <div id="datosInicio">
-                            <h2 id="tituloFormulario">Inicio de Sesión</h2>
+                            <h2 id="tituloFormulario">Registro de Usuarios</h2>
                             <div id="campos">
                                 <div>
                                     <label for="usuario" class="input-text">Usuario:</label>
-                                    <input type="text" name="usuario" class="input-text" id="username"><br><br>
+                                    <input type="text" name="usuario" class="input-text" id="username">
                                 </div>
                                 <div>
-                                    <label for="contraseña">Contraseña:</label>
-                                    <input type="password" name="contraseña" class="input-text" id="password"><br><br>
+                                    <label for="contraseña" class="input-text">Contraseña:</label>
+                                    <input type="password" name="contraseña" class="input-text" id="password">
                                 </div>
                                 <div>
-                                    <input type="checkbox" id="check" name="recordar-contraseña">
-                                    <label for="recordar-contraseña">Recordar contraseña</label><br><br>
+                                    <label for="correo" class="input-text">Correo electrónico</label>
+                                    <input type="email" name="email" id="email" class="input-text">
                                 </div>
                                 <div>
-                                    <button type="submit" class="boton">Iniciar Sesión</button>
-                                    <button type="button" class="boton"><a href="/registro">Registrar Parqueadero</a></button>
+                                    <label for="correo" class="input-text">Numero de parqueaderos disponibles</label>
+                                    <input type="number" name="slots" id="slots" class="input-text" min="1" max="80">
+                                </div>
+                                <div>
+                                    <button type="submit" class="boton">Registrar Usuario</button>
                                 </div>
 <!--                                 <div id="reestablecerClave">
                                     <button type="button" class="boton">Restablecer Contraseña</button>
@@ -59,7 +62,7 @@
             </div>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="js/registro.js"></script>
 </body>
 </html>
 

@@ -10,12 +10,11 @@
 </head>
 <body>
     <header>
-        <div style="display: flex; align-items: center; gap: 29em;">
-            <h1>Bienvenido a EasyParking</h1>
+        <div class="header-container">
+            <h1>EasyParking</h1>
             <a href="/"><i class="fas fa-sign-out-alt"></i></a>
         </div>
     </header>
-    
 
     <nav>
         <ul>
@@ -23,172 +22,73 @@
             <li><a href="/estadistica" target="_blank" rel="noopener noreferrer">Estadística</a></li>
         </ul>
     </nav>
-    
-    <main>
 
+    <main>
+        <section id="fechaHora">
+            <p id="hora">Cargando...</p>
+        </section>
         <div id="contenido-interfaz">
-            <section>
+            <!-- Sección de espacios -->
+            <section id="espacios">
                 <div id="contenedor-general-espacios" class="contenedor-seccion">
-    
                     <h2>Validar Espacios del Parqueadero</h2>
                     <div id="contenedor-espacio">
-                        <div id="1" class="espacio">A1</div>
-                        <div id="2" class="espacio">A2</div>
-                        <div id="3" class="espacio">A3</div>
-                        <div id="4" class="espacio">A4</div>
-                        <div id="5" class="espacio">A1</div>
-                        <div id="6" class="espacio">A2</div>
-                        <div id="7" class="espacio">A3</div>
-                        <div id="8" class="espacio">A4</div>
-                        <div id="9" class="espacio">A1</div>
-                        <div id="10" class="espacio">A2</div>
-                        <div id="11" class="espacio">A3</div>
-                        <div id="12" class="espacio">A4</div>
-                        <div id="13" class="espacio">A1</div>
-                        <div id="14" class="espacio">A2</div>
-                        <div id="15" class="espacio">A3</div>
-                        <div id="16" class="espacio">A4</div>
-                        <div id="17" class="espacio">A1</div>
-                        <div id="18" class="espacio">A2</div>
-                        <div id="19" class="espacio">A3</div>
-                        <div id="20" class="espacio">A4</div>
-                        <div id="21" class="espacio">A1</div>
-                        <div id="22" class="espacio">A2</div>
-                        <div id="23" class="espacio">A3</div>
-                        <div id="24" class="espacio">A4</div>
-                        <div id="25" class="espacio">A1</div>
-                        <div id="26" class="espacio">A2</div>
-                        <div id="27" class="espacio">A3</div>
-                        <div id="28" class="espacio">A4</div>
-                        <div id="29" class="espacio">A1</div>
-                        <div id="30" class="espacio">A2</div>
-                        <div id="31" class="espacio">A3</div>
-                        <div id="32" class="espacio">A4</div>
-                        <div id="33" class="espacio">A1</div>
-                        <div id="34" class="espacio">A2</div>
-                        <div id="35" class="espacio">A3</div>
-                        <div id="36" class="espacio">A4</div>
-                        <div id="37" class="espacio">A1</div>
-                        <div id="38" class="espacio">A2</div>
-                        <div id="39" class="espacio">A3</div>
-                        <div id="40" class="espacio">A4</div>
-                        <div id="41" class="espacio">A1</div>
-                        <div id="42" class="espacio">A2</div>
-                        <div id="43" class="espacio">A3</div>
-                        <div id="44" class="espacio">A4</div>
-                        <div id="45" class="espacio">A1</div>
-                        <div id="46" class="espacio">A2</div>
-                        <div id="47" class="espacio">A3</div>
-                        <div id="48" class="espacio">A4</div>
-                        <div id="49" class="espacio">A1</div>
-                        <div id="50" class="espacio">A2</div>
-                        <div id="51" class="espacio">A3</div>
-                        <div id="52" class="espacio">A4</div>
-                        <div id="53" class="espacio">A1</div>
-                        <div id="54" class="espacio">A2</div>
-                        <div id="55" class="espacio">A3</div>
-                        <div id="56" class="espacio">A4</div>
-                        <div id="57" class="espacio">A1</div>
-                        <div id="58" class="espacio">A2</div>
-                        <div id="59" class="espacio">A3</div>
-                        <div id="60" class="espacio">A4</div>
+                        <!-- Generación dinámica de espacios sugerida -->
+                        <!-- Esto puede ser gestionado con JavaScript para evitar código repetitivo -->
+                        <template id="espacio-template">
+                            <div class="espacio"></div>
+                        </template>
+                        <script>
+                            // Generar 60 espacios dinámicamente (ejemplo básico)
+                            const contenedorEspacios = document.getElementById("contenedor-espacio");
+                            for (let i = 1; i <= 21; i++) {
+                                const div = document.createElement("div");
+                                div.className = "espacio";
+                                div.textContent = `A${i}`;
+                                contenedorEspacios.appendChild(div);
+                            }
+                        </script>
                     </div>
-    
                 </div>
-                
             </section>
-    
-     
-            <section>
-                
-                <div id="contenedor-general-registro">
 
-               <div id="registro-ingreso" class="contenedor-seccion">
-                <div>
+            <!-- Sección de registro -->
+            <section id="registro">
+                <!-- Registro de ingreso -->
+                <div id="registro-ingreso" class="contenedor-seccion">
                     <h2>Ingreso de Vehículo</h2>
-                </div>
-    
-                <div>
                     <form>
-    
-                        <div>
-                            <label class="etiqueta" for="placa">Placa del Vehículo:</label>
-                        </div>
-                        <div>
-                            <input type="text" name="placa" id="ingresoPlaca"></div>
-                        <div>
-                            <label class="etiqueta">Tipo de Vehículo:</label>
-                        </div>
-
-
+                        <label class="etiqueta" for="ingresoPlaca">Placa del Vehículo:</label>
+                        <input type="text" name="placa" id="ingresoPlaca">
+                        <label class="etiqueta">Tipo de Vehículo:</label>
                         <div id="tipo-vehiculo">
-
-                            <div>
-                                <input type="radio" name="tipo-vehiculo" value="carro" class="tipoVehiculo">
-                            </div>
-                            <div>
-                                <label class="etiqueta" for="carro">Carro</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="tipo-vehiculo" value="moto" class="tipoVehiculo">
-                            </div>
-
-                            <div>
-                                <label class="etiqueta" for="moto">Moto</label>
-                            </div>
-
+                            <input type="radio" name="tipo-vehiculo" value="carro" id="carro" class="tipoVehiculo">
+                            <label for="carro">Carro</label>
+                            <input type="radio" name="tipo-vehiculo" value="moto" id="moto" class="tipoVehiculo">
+                            <label for="moto">Moto</label>
                         </div>
-
-                        <div>
-                            <input type="submit" value="Registrar" class="boton" onclick="registro() ">
-                        </div> 
-
-                  
+                        <button type="submit" class="boton" onclick="capturarDatos()">Registrar</button>
                     </form>
                 </div>
-               </div>
-    
-               <div>
-                
+
+                <!-- Registro de retiro -->
                 <div id="registro-retiro" class="contenedor-seccion">
-
-                    <div>
-                        <h2>Retiro de Vehículo</h2>
-                    </div>
-
-                <form>                   
-        
-                    <div>
-                        <label for="placa">Placa del Vehículo:</label>
-                    </div>
-                    <div>
-                        <input type="text" name="placa">
-                    </div>
-                    
-                        <input type="submit" value="Registrar" class="boton">
-                    </div>                   
-                </form>
-            </div>
-           </div>
+                    <h2>Retiro de Vehículo</h2>
+                    <form>
+                        <label class="etiqueta" for="retiroPlaca">Placa del Vehículo:</label>
+                        <input type="text" name="placa" id="retiroPlaca">
+                        <button type="submit" class="boton">Registrar</button>
+                    </form>
+                </div>
+            </section>
         </div>
-
-        </section>
-            
-        </div>
-
-
     </main>
-    
+
     <footer id="piePagina">
-        <div id="derechos-autor">
-            <div id="texto-derechos">
-                <P>Página elaborada por Christian Obando y Juan Camilo Pavi Proyecto Easy Parking - Todos los derechos reservados © 2025</p>
-                <p>Este proyecto se desarrolló como parte del programa Talento Tech Valle</p>
-            </div>
-        </div>
-
-
+        <p>Página elaborada por Christian Obando y Juan Camilo Pavi | Proyecto Easy Parking - Todos los derechos reservados © 2025</p>
+        <p>Este proyecto se desarrolló como parte del programa Talento Tech Valle</p>
     </footer>
-<script src="/script.js"></script>
+
+    <script src="js/home.js"></script>
 </body>
 </html>

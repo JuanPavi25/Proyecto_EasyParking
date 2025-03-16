@@ -1,7 +1,6 @@
 console.log("Scriptjs cargador Correctamenrte")
 
 const form = document.getElementById('loginForm');
-const message = document.getElementById('message');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -10,10 +9,10 @@ form.addEventListener('submit', function(event) {
 
     // Validación simple
     if (username === 'admin' && password === '1234') {
-        alert('¡Login exitoso!');
-        message.textContent = '';
-        window.location.href = '/'
+        alert('¡Login exitoso!'); 
+        window.location.href = '/home'
     } else {
-        alert("'Usuario o contraseña incorrectos.'")
+        alert("'Usuario o contraseña incorrectos.")
     }
-});
+});  
+

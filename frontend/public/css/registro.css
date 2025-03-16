@@ -103,7 +103,7 @@ h1{
     background-color: #f8f9fd;
     border-radius: 10px;
     box-shadow: 0px 0px 20px 8px #007d6e65;
-    height: 370px;
+    height: inherit;
     flex-wrap: wrap;
 }
 
@@ -113,8 +113,9 @@ h1{
     align-items: center;
     justify-items: center;
     padding: 9px;
-    width: 372px;
+    width: fit-content;
     height: 405px;
+    gap:10px
 }
 
 #tituloFormulario{
@@ -134,6 +135,7 @@ h1{
     height: 300px;
     width: 350px;
     box-shadow: 5px 5px #007d6e2c;
+    gap:10px
 }
 
 #reestablecerClave{
