@@ -1,0 +1,121 @@
+/* Reseteo de márgenes y paddings para evitar inconsistencias */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color:#007d6ee6;
+    color: white;
+    text-align: right; /* Alineación a la izquierda */
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+header i {
+    font-size: 1.5em; /* Tamaño del ícono */
+    color: white;
+    cursor: pointer; /* Cambia a puntero si es clickeable */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6e6e6;
+    padding: 0.5em 0;
+    
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Espacio entre el texto y el ícono */
+}
+
+nav ul li a.cerrar-sesion i {
+    font-size: 1em; /* Ajusta el tamaño del ícono */
+    color: #ff4d4d; /* Cambia el color del ícono si lo deseas */
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1em;
+    background-color: #f9f9f9;
+}
+
+.cajadatos {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+}
+
+.cajadato {
+    margin-bottom: 1em;
+}
+
+.cajadato table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.cajadato table th,
+.cajadato table td {
+    border: 1px solid #ddd;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.cajadato table th {
+    background-color: #007d6e;
+    color: white;
+}
+
+footer {
+    background-color: #007d6e;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: auto; /* Empuja el pie de página hacia el fondo */
+}
+
+#piePagina p {
+    margin: 0.5em 0;
+}

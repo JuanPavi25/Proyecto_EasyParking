@@ -1,0 +1,223 @@
+body{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white ;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-height: 100vh;
+
+}
+
+main{
+    flex-grow: 1;
+   
+}
+
+header {
+    background-color:#007d6ee6;
+    color: white;
+    text-align: right; /* Alineación a la izquierda */
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+header i {
+    font-size: 1.5em; /* Tamaño del ícono */
+    color: white;
+    cursor: pointer; /* Cambia a puntero si es clickeable */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6e6e6;
+    padding: 0.5em 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Espacio entre el texto y el ícono */
+}
+
+nav ul li a.cerrar-sesion i {
+    font-size: 1em; /* Ajusta el tamaño del ícono */
+    color: #ff4d4d; /* Cambia el color del ícono si lo deseas */
+}
+
+
+.etiqueta{
+    margin: 10px;
+}
+
+#piePagina{
+    height: 2%;
+    display: flex;
+    justify-content: center;
+    background-color: #007d6e;
+    line-height: 5px;
+    color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+    
+}
+
+#piepagina p{
+    margin-top: 10px;
+}
+
+#contenido-interfaz{
+    display: flex;
+    flex-direction: row;
+   /*  align-items: normal; */
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+
+
+.contenedor-seccion{
+    border: 2px solid #007d6e;
+    border-radius: 10px;
+    margin: 10px;
+    box-sizing: border-box; 
+
+}
+
+.espacio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding: 4px;
+    width: 40px;
+    height: 50px;
+    border: 2px solid #007d6e;
+    border-radius: 10px;
+    background-color: #68fb6e;
+}
+
+.espacio:hover{
+    background-color: #007d6e41;
+    box-shadow: 10px rgba(133, 115, 115, 0.096);
+}
+
+#contenedor-espacio{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+#contenedor-general-espacios{
+    display: flex;
+    flex-direction: column;
+    
+    width: 800px;
+    height: 452px;
+    margin: 10px;
+    padding: 10px; 
+    box-sizing: border-box;    
+}
+
+#contenedor-general-registro{
+    display: flex;
+    flex-direction: column;
+    width: 461px;
+    height: 452px;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;    
+}
+
+#registro-ingreso{
+    height: 247px;
+    margin-top: -8px;
+
+}
+
+#tipo-vehiculo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+#registro-retiro{
+    height: 202px;
+}
+
+.boton{
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007d6e;
+    color:white
+}
+
+@media (max-width: 768px) {
+
+    nav ul {
+
+        flex-direction: row;
+        align-items: center;
+
+    }
+
+    nav ul li{
+        margin: 10px 15px;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+    #contenido-interfaz{
+        flex-direction: column;
+    }
+
+    #contenedor-general-espacios{
+        width: 100%;
+        max-width: 480px;
+        height: fit-content;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+
+
+    #piePagina p {
+        font-size: 10px;
+    }
+}
