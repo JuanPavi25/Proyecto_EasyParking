@@ -1,11 +1,28 @@
 const express = require('express')
 const moongose = require('mongoose')
+const User = require('./models/User')
 const path = require('path')
 require('dotenv').config()
-
+const PORT = 3000
 
 const app = express()
-const PORT = 3000
+app.use(express.json())
+
+moongose.connect(process.env.MONGO_URI)
+.then(() => console.log('MongoDB Conectado'))
+.catch((err) => console.error(err))
+
+app.post('/registro', async (req, res) => {
+    const {usuario, contrasena, email, slots} = req.body;
+    try{
+        const user = new User({usuario, contrasena, email, slots})
+        await user.save();
+        res.status(201).send('Usuario registrado')
+    } catch(error){
+        res.status(400).send('Error al registrar el usuario')
+    }
+});
+
 
 app.use(express.static(path.join(__dirname, `../frontend/public`)))
 
@@ -16,6 +33,10 @@ app.use((req, res, next)=> {
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/views', 'index.html'))
+})
+
+app.get('/registro', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/views', 'registro.html'))
 })
 
 app.get('/home', (req, res) => {
