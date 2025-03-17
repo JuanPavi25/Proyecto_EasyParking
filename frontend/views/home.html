@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="header-container">
-            <h1>EasyParking</h1>
+            <h1 id="tituloprin">EasyParking</h1>
             <a href="/"><i class="fas fa-sign-out-alt"></i></a>
         </div>
     </header>
@@ -38,16 +38,6 @@
                         <template id="espacio-template">
                             <div class="espacio"></div>
                         </template>
-                        <script>
-                            // Generar 60 espacios dinámicamente (ejemplo básico)
-                            const contenedorEspacios = document.getElementById("contenedor-espacio");
-                            for (let i = 1; i <= 21; i++) {
-                                const div = document.createElement("div");
-                                div.className = "espacio";
-                                div.textContent = `A${i}`;
-                                contenedorEspacios.appendChild(div);
-                            }
-                        </script>
                     </div>
                 </div>
             </section>

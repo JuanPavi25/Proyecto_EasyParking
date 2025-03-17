@@ -1,27 +1,23 @@
 const express = require('express')
 const moongose = require('mongoose')
-const User = require('./models/User')
+const regRoutes = require("../backend/routes/userRoutes")
+const cors = require('cors');
+
+
 const path = require('path')
 require('dotenv').config()
 const PORT = 3000
 
 const app = express()
+app.use(cors());
 app.use(express.json())
 
 moongose.connect(process.env.MONGO_URI)
 .then(() => console.log('MongoDB Conectado'))
 .catch((err) => console.error(err))
 
-app.post('/registro', async (req, res) => {
-    const {usuario, contrasena, email, slots} = req.body;
-    try{
-        const user = new User({usuario, contrasena, email, slots})
-        await user.save();
-        res.status(201).send('Usuario registrado')
-    } catch(error){
-        res.status(400).send('Error al registrar el usuario')
-    }
-});
+app.use("/userRoutes", regRoutes);
+/* app.use("/", ) */
 
 
 app.use(express.static(path.join(__dirname, `../frontend/public`)))

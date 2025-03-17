@@ -1,3 +1,10 @@
+const datosUsuario = JSON.parse(localStorage.getItem('user'))
+if (datosUsuario){
+  console.log('Usuario logueado', datosUsuario)
+  const titulo = document.getElementById('tituloprin');
+  titulo.textContent = (datosUsuario.usuario)
+
+}
 let placa
 let hora
 
@@ -35,8 +42,16 @@ function mostrarReloj() {
 }
 
 
-// Llamamos a la función para que se ejecute cada segundo
-setInterval(mostrarReloj, 1000); // 1000 ms = 1 segundo
+setInterval(mostrarReloj, 1000);
+
+// Generar los espacios de acuerdo a la cantidad de slots previamente configurado
+const contenedorEspacios = document.getElementById("contenedor-espacio");
+for (let i = 1; i <= datosUsuario.slots; i++) {
+    const div = document.createElement("div");
+    div.className = "espacio";
+    div.textContent = `A${i}`;
+    contenedorEspacios.appendChild(div);
+}
 
 const vehiculo = {
     tipoVehiculo : String,

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require("../models/User")
+const  vehiculos= require("../models/User")
 
 router.post('/register', async (req, res) => {
 const {usuario, contrasena, email, slots} = req.body;
