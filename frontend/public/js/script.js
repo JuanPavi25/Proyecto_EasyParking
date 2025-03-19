@@ -21,9 +21,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
             if (response.ok) {
                 localStorage.setItem('user', JSON.stringify(data.user));
 
-                /* alert('inicio de sesion correcto') */
-                // Redirigir al usuario al home o index
-                window.location.href = '/home'; // Cambia esto por tu ruta
+                window.location.href = '/home'; 
             } else {
                 window.location.reload();
             }
@@ -31,8 +29,5 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     console.error('Error al conectar al servidor:', error);
     alert('Hubo un problema al conectar con el servidor.');
     }
-
-    
-
   });
   

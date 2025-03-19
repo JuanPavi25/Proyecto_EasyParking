@@ -1,6 +1,7 @@
 const express = require('express')
 const moongose = require('mongoose')
 const regRoutes = require("../backend/routes/userRoutes")
+const vehRoutes = require("../backend/routes/vehiculosRoutes")
 const cors = require('cors');
 
 
@@ -17,6 +18,7 @@ moongose.connect(process.env.MONGO_URI)
 .catch((err) => console.error(err))
 
 app.use("/userRoutes", regRoutes);
+app.use("/vehiculosRoutes", vehRoutes);
 /* app.use("/", ) */
 
 

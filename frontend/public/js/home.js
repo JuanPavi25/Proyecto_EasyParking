@@ -3,21 +3,7 @@ if (datosUsuario){
   console.log('Usuario logueado', datosUsuario)
   const titulo = document.getElementById('tituloprin');
   titulo.textContent = (datosUsuario.usuario)
-
 }
-let placa
-let hora
-
-const espacios = document.querySelectorAll('.espacio');
-
-// Añade un evento de clic a cada botón
-espacios.forEach(function(espacio) {
-espacio.addEventListener('click', function() {
-    // Cambia el color de fondo de solo este botón
-    espacio.style.backgroundColor = '#FB6868';  // El color puede ser el que elijas
-    /* espacio.textContent = placa */
-    });
-}); 
 
 // Función para actualizar la fecha y hora del equipo en vivo
 function mostrarReloj() {
@@ -41,7 +27,6 @@ function mostrarReloj() {
 
 }
 
-
 setInterval(mostrarReloj, 1000);
 
 // Generar los espacios de acuerdo a la cantidad de slots previamente configurado
@@ -49,42 +34,77 @@ const contenedorEspacios = document.getElementById("contenedor-espacio");
 for (let i = 1; i <= datosUsuario.slots; i++) {
     const div = document.createElement("div");
     div.className = "espacio";
+    div.id = `${(i)}`
     div.textContent = `A${i}`;
     contenedorEspacios.appendChild(div);
 }
 
-const vehiculo = {
-    tipoVehiculo : String,
-    placa : String,
-    horaIngreso : String,
-    horaSalida : String,
-    fechaIngreso : Date,
-    fechaSalida: Date
-}
+const espacios = document.querySelectorAll('.espacio');
+espacios.forEach(function(espacio) {
+espacio.addEventListener('click', function() {
+    espacio.style.backgroundColor = '#FB6868';  // 
+    });
+}); 
 
-function capturarDatos(){
-    
-
-  let tipoVehiculo2 = document.getElementsByName('tipo-vehiculo');
+document.getElementById("ingresoVehi").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  console.log(e)
   
- for ( i = 0; i < tipoVehiculo2.length; i++) {
+    let tipoVehiculo2 = document.getElementsByName('tipo-vehiculo');
+  
+    for ( i = 0; i < tipoVehiculo2.length; i++) {
     if (tipoVehiculo2[i].checked) {
       // Si el radio está seleccionado, mostrar el valor
-      prueba = tipoVehiculo2[i].value;
-      let placa = document.getElementById('ingresoPlaca').value;
-      vehiculo.tipoVehiculo = prueba;
-      vehiculo.placa = placa;
-      vehiculo.horaIngreso = hora
-      vehiculo.fechaIngreso = fecha2
+      const placa = document.getElementById('ingresoPlaca').value
+      const tipoVehiculo = tipoVehiculo2[i].value;
+      const horaIngreso = new Date().toLocaleTimeString();
+      const fechaIngreso = new Date().toLocaleDateString();
+      const fechaSalida = '0'
+      const horaSalida = '0'
   
-      console.log(vehiculo)
+      const response = await fetch("http://localhost:3000/vehiculosRoutes/registerVehiculo", { 
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ placa, tipoVehiculo, horaIngreso, fechaIngreso, horaSalida, fechaSalida}) 
+      
+   
+  });
+  if (response.ok){
+    const slots = i;
+    const data = await response.json();
+    console.log(data);
+    const mensaje = data.message
+    alert(mensaje)
+    console.log(mensaje)
+  }
+   }}
       return; 
        // Salir del ciclo después de encontrar el seleccionado
+
+  })
+
+  document.getElementById("retiroVehi").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    console.log(e)
+    const placa = document.getElementById('retiroPlaca').value; // Valor único del vehículo
+    const horaSalida = new Date().toLocaleTimeString(); // Hora actual
+    const fechaSalida = new Date().toLocaleDateString();
+    console.log(placa,horaSalida,fechaSalida)
+
+    try {
+      const response = await fetch(`http://localhost:3000/vehiculosRoutes/updateVehiculo/${placa}`, { 
+        method: "PUT", // Método HTTP para actualización
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ horaSalida, fechaSalida }) 
+      });
+  
+      const data = await response.json();
+      console.log(data);
+      const mensaje = data.message;
+      alert(mensaje);
+    } catch (error) {
+      console.error("Hubo un error:", error);
+      alert("No se pudo actualizar el vehículo");
     }
-  }    
-
-}
-
-function registrarSalida(){
-    
-}
+  });
+  

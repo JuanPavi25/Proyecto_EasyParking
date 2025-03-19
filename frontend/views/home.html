@@ -47,7 +47,7 @@
                 <!-- Registro de ingreso -->
                 <div id="registro-ingreso" class="contenedor-seccion">
                     <h2>Ingreso de Vehículo</h2>
-                    <form>
+                    <form id="ingresoVehi">
                         <label class="etiqueta" for="ingresoPlaca">Placa del Vehículo:</label>
                         <input type="text" name="placa" id="ingresoPlaca">
                         <label class="etiqueta">Tipo de Vehículo:</label>
@@ -57,14 +57,14 @@
                             <input type="radio" name="tipo-vehiculo" value="moto" id="moto" class="tipoVehiculo">
                             <label for="moto">Moto</label>
                         </div>
-                        <button type="submit" class="boton" onclick="capturarDatos()">Registrar</button>
+                        <button type="submit" class="boton">Registrar</button>
                     </form>
                 </div>
 
                 <!-- Registro de retiro -->
                 <div id="registro-retiro" class="contenedor-seccion">
                     <h2>Retiro de Vehículo</h2>
-                    <form>
+                    <form id="retiroVehi">
                         <label class="etiqueta" for="retiroPlaca">Placa del Vehículo:</label>
                         <input type="text" name="placa" id="retiroPlaca">
                         <button type="submit" class="boton">Registrar</button>
